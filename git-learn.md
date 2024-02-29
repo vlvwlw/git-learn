@@ -37,3 +37,25 @@ git commit -a "xxx" 提交所有已修改的文件（未跟踪的文件不会提
 ```
 ### 未修改 → 修改
     修改代码后，文件会变为修改状态
+
+## 常用的命令
+1. 重置文件
+    ```
+    git restore <filename> # 恢复文件
+    git restore --staged <filename> # 取消暂存状态
+    ```
+2. 删除文件
+    ```
+    git rm <filename> # 删除文件
+    git rm <filename> -f # 强制删除
+    ```
+3. 移动文件
+    ```
+    git mv from to # 移动文件 重命名文件
+    ```
+
+```
+git rm <filename> # 删除文件后
+git restore --staged <filename> # 取消暂存状态后使用
+git restore <filename> #可以恢复已删除的文件
+```
