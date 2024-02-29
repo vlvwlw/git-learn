@@ -59,3 +59,13 @@ git rm <filename> # 删除文件后
 git restore --staged <filename> # 取消暂存状态后使用
 git restore <filename> #可以恢复已删除的文件
 ```
+### 分支
+git 在存储文件时，每一次代码代码的提交都会创建一个与之对应的节点，git 就是通过一个一个的节点来记录代码的状态的。节点会构成一个树状结构，树状结构就意味着这个树会存在分支，默认情况下仓库只有一个分支，命名为 master。在使用 git 时，可以创建多个分支，分支与分支之间相互独立，在一个分支上修改代码不会影响其他的分支。
+```
+git branch # 查看当前分支
+git branch <branch name> # 创建新的分支
+git branch -d <branch name> # 删除分支
+git switch <branch name> # 切换分支
+git switch -c <branch name> # 创建并切换分支
+git merge <branch name> # 和并分支
+```
