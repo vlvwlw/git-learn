@@ -83,3 +83,38 @@ git merge <branch name> # 和并分支
 4. 以当前基底开始，重新执行历史操作
 
 变基和 merge 对于合并分支来说最终的结果是一样的！但是变基会使得代码的提交记录更整洁更清晰！注意！大部分情况下合并和变基是可以互换的，但是如果分支已经提交给了远程仓库，那么这时尽量不要变基。
+
+### 远程仓库（remote）
+目前我对于 git 所有操作都是在本地进行的。在开发中显然不能这样的，这时我们就需要一个远程的 git 仓库。远程的 git 仓库和本地的本质没有什么区别，不同点在于远程的仓库可以被多人同时访问使用，方便我们协同开发。在实际工作中，git 的服务器通常由公司搭建内部使用或是购买一些公共的私有 git 服务器。我们学习阶段，直接使用一些开放的公共 git 仓库。目前我们常用的库有两个：GitHub 和 Gitee（码云）
+
+将本地库上传 git：
+```
+git remote add origin https://github.com/lilichao/git-demo.git
+# git remote add <remote name> <url>
+
+git branch -M main
+# 修改分支的名字的为main
+
+git push -u origin main
+# git push 将代码上传服务器上
+```
+将本地库上传 gitee：
+```
+git remote add gitee https://gitee.com/ymhold/vue-course.git
+git push -u gitee main
+```
+### 远程库的操作的命令
+```
+git remote # 列出当前的关联的远程库
+git remote add <远程库名> <url> # 关联远程仓库
+git remote remove <远程库名>  # 删除远程库
+git push -u <远程库名> <分支名> # 向远程库推送代码，并和当前分支关联
+git push <远程库> <本地分支>:<远程分支>
+git clone <url> # 从远程库下载代码
+
+git push # 如果本地的版本低于远程库，push默认是推不上去
+git fetch # 要想推送成功，必须先确保本地库和远程库的版本一致，fetch它会从远程仓库下载所有代码，但是它不会将代码和当前分支自动合并
+		 # 使用fetch拉取代码后，必须要手动对代码进行合并
+git pull  # 从服务器上拉取代码并自动合并
+```
+注意：推送代码之前，一定要先从远程库中拉取最新的代码
